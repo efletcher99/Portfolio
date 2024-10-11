@@ -1,0 +1,350 @@
+/* General reset and styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*header img {
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; 
+    font-family: Arial, sans-serif;
+}*/
+
+.background-section {
+    height: 100vh; 
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    /*color: white;*/ 
+    text-align: center; /* Center-align text */
+    padding: 20px; /* Add some padding for readability */
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for text readability */
+    position: relative; /* For positioning any absolute children */
+}
+
+main {
+    padding: 20px;
+    max-width: 1000px;
+    margin: 20px auto;
+    background: transparent;
+}
+
+header {
+    position: relative; /* Positioning context for fixed nav */
+    z-index: 1000; /* Ensure it stays on top */
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+header.hidden {
+    transform: translateY(-100%); /* Move header out of view */
+}
+
+header h1 {
+    font-size: 7em;
+    position: fixed; /* Keep it fixed to the top */
+    top: 300px; /* Adjust as needed */
+    /*left: 50%; /* Center horizontally */
+    transform: translateY(-25px); /* Adjust for centering */
+    z-index: 1; /* Ensure it stays above other content */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+header h1.shift{
+    transform: translateY(-100px);
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+.additional-info {
+    opacity: 0; /* Hide initially */
+    transform: translateY(20px); /* Move down slightly */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    position: fixed; /* Change to relative */
+    top: 350px; /* Adjust to position under the name */
+    z-index: 1;
+}
+
+.additional-info.visible {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Move to original position */
+}
+
+.additional-info p{
+    font-size: 2em;
+}
+
+.background-section{
+    height: 170vh; 
+    background-image: url('background_2.jpg'); 
+    background-size: cover;
+    background-position: center; 
+    background-attachment: fixed; 
+    align-items: center;
+    position: relative;
+    color: white; 
+    text-align: center;
+    padding: 20px;
+    margin: 20px auto;
+}
+
+nav.fixed {
+    position: fixed; /* Fix the position */
+    top: 0; /* Position it at the top of the viewport */
+    left: 0; 
+    right: 0;
+    z-index: 1000; /* Ensure it stays above other content */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add shadow for visual effect */
+    transition: top 0.3s; /* Smooth transition */
+}
+
+nav.horizontal-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 20px;
+    color: white;
+    position: fixed; /* Fix the nav at the top */
+    top: 0; /* Align at the top */
+    left: 0; /* Align to the left edge */
+    width: 100%; /* Make it span the full width of the screen */
+    z-index: 0; /* Ensure it stays above other content */
+    /*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: add shadow for emphasis */
+}
+
+  /* Style for the menu list */
+nav.horizontal-menu ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin: 0;
+}
+
+  /* Style for the individual links */
+nav.horizontal-menu ul li {
+    margin: 0 15px;
+}
+
+nav.horizontal-menu ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.5em;
+    padding: 10px 20px;
+    border: 10px solid transparent;
+    transition: all 0.3s ease;
+}
+
+nav.horizontal-menu ul li a:hover {
+    border: 2px solid white;
+    color: white;
+    background-color: transparent;
+    
+    /* Add glow effect */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    padding: 5px;
+    background-color: #444; 
+    border-radius: 4px; 
+}
+
+.menu-icon div {
+    width: 100%;
+    height: 4px;
+    background-color: #fff;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 20px; /* Same padding as nav */
+}
+
+.tablinks {
+    background-color: transparent; /* Match with nav background */
+    border: 10px solid transparent; /* Make sure border matches nav link border */
+    color: #ffffff; /* Match the text color */
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, border 0.3s, box-shadow 0.3s; /* Add box-shadow for consistency */
+    font-size: 1.5em; /* Match nav link size */
+}
+  
+.tablinks:hover {
+    border: 2px solid white; /* Same hover effect as nav */
+    background-color: transparent; /* Make it transparent to match */
+    color: white; /* Text color on hover */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5); /* Glow effect */
+}
+  
+.tablinks.active {
+    background-color: #444; /* Background color for active tab to match nav background */
+    color: white; /* Text color for active tab */
+}
+
+main {
+    background-image: url('background_2.jpg'); 
+    background-size: cover;
+    background-position: center; 
+    background-attachment: fixed; 
+    padding: 20px;
+    background: transparent;
+    position: relative;
+    max-width: 1000px;
+    margin: 20px auto;
+    z-index: 2;
+}
+
+section {
+    background: transparent;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; 
+}
+
+section h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+section h3 {
+    font-size: 1.5em;
+    line-height: 1.5;
+    color: #666;
+    text-decoration: underline;
+}
+
+section p{
+    font-size: 1em;
+    line-height: 1.5;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.skills-list {
+    list-style-type: none; 
+    padding: 0; 
+    margin-bottom: 20px; 
+    display: flex; 
+}
+
+.skills-list li {
+    margin-right: 15px; 
+    padding: 5px 10px; 
+    background-color: #f0f0f0; 
+    border-radius: 5px; 
+    box-shadow: 0 2px 4px rgba(0, 255, 255, 0.403); 
+    font-weight: bold; 
+}
+
+.skills-list li:hover {
+    box-shadow: 0 4px 6px rgba(0, 255, 255); 
+}
+
+#Projects img {
+    max-width: 100%;
+    height: auto;
+    width: 300px; 
+    height: 245px; 
+    display: block;
+    margin: 0 auto;
+    margin-top: 50px;
+    object-fit: cover; 
+}
+
+.side-by-side {
+    display: flex;
+    align-items: center; 
+}
+
+.side-by-side p {
+    flex: 1; 
+    margin-right: 20px; 
+}
+
+.side-by-side img {
+    max-width: 40%; 
+    height: auto;
+    box-shadow: 0 6px 8px rgb(170, 170, 170); 
+}
+
+section#Contact{
+    background: #000;
+    color: #fff;
+}
+
+section#Contact h2{
+    color: #fff;
+}
+
+#Contact img {
+    max-width: 100%;
+    height: auto;
+    width: 400px; 
+    height: 400px; 
+    display: block;
+    margin: 0 auto; 
+    margin-top: 50px;
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 5px solid #fff;
+}
+
+#Contact img.contact-logo {
+    display: inline-block; 
+    margin: 100px;
+    width: 50px; 
+    height: 50px; 
+    border-radius: 0%;
+    object-fit: cover;
+    border: none;
+}
+
+#Contact .contact-logos {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    margin-top: 20px; 
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background: #333;
+    color: #fff;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+.centered-text {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7); 
+    /*color: #fff;*/
+    padding: 10px 0;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 0 0 8px 8px;
+}
