@@ -4,15 +4,29 @@ document.addEventListener('DOMContentLoaded', function() {
     const nav = document.querySelector('nav'); 
     const h1 = document.querySelector("header h1");
     const additionalInfo = document.querySelector(".additional-info");
+    const tabs = document.querySelector('.tabs');
 
     openTab(null, 'Projects');
 
     // Scroll event handler
     document.addEventListener("scroll", function() {
+
+        if(window.scrollY > 1000) {
+            tabs.classList.add('visible');
+        } else {
+            tabs.classList.remove('visible')
+        }
+
         if (window.scrollY > 50) {
             h1.classList.add("shift");
         } else {
             h1.classList.remove("shift");
+        }
+
+        if (window.scrollY > 1000) { 
+            tabs.classList.add('visible'); 
+        } else {
+            tabs.classList.remove('visible'); 
         }
 
         if(window.scrollY <= 1000){
@@ -63,4 +77,27 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById(sectionId).scrollIntoView({ behavior: "smooth" });
         });
     });
+});
+
+function openTab(evt, tabName) {
+    // Get all elements with class="tabcontent" and hide them
+    var tabcontent = document.getElementsByClassName("tabcontent");
+    for (var i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    var tablinks = document.getElementsByClassName("tablinks");
+    for (var i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+// By default, open the first tab when the page loads
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelector(".tablinks").click();
 });

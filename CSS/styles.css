@@ -5,13 +5,6 @@
     box-sizing: border-box;
 }
 
-/*header img {
-    background-size: cover; 
-    background-position: center; 
-    background-attachment: fixed; 
-    font-family: Arial, sans-serif;
-}*/
-
 .background-section {
     height: 100vh; 
     display: flex;
@@ -62,17 +55,17 @@ header h1.shift{
 }
 
 .additional-info {
-    opacity: 0; /* Hide initially */
-    transform: translateY(20px); /* Move down slightly */
+    opacity: 0; 
+    transform: translateY(20px); 
     transition: opacity 0.5s ease, transform 0.5s ease;
-    position: fixed; /* Change to relative */
-    top: 350px; /* Adjust to position under the name */
+    position: fixed; 
+    top: 350px; 
     z-index: 1;
 }
 
 .additional-info.visible {
-    opacity: 1; /* Fully visible */
-    transform: translateY(0); /* Move to original position */
+    opacity: 1; 
+    transform: translateY(0); 
 }
 
 .additional-info p{
@@ -87,20 +80,20 @@ header h1.shift{
     background-attachment: fixed; 
     align-items: center;
     position: relative;
-    color: white; 
+    color: white;  
     text-align: center;
     padding: 20px;
     margin: 20px auto;
 }
 
 nav.fixed {
-    position: fixed; /* Fix the position */
-    top: 0; /* Position it at the top of the viewport */
+    position: fixed;
+    top: 0; 
     left: 0; 
     right: 0;
-    z-index: 1000; /* Ensure it stays above other content */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add shadow for visual effect */
-    transition: top 0.3s; /* Smooth transition */
+    z-index: 1000; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    transition: top 0.3s; 
 }
 
 nav.horizontal-menu {
@@ -109,12 +102,12 @@ nav.horizontal-menu {
     align-items: center;
     padding: 20px 20px;
     color: white;
-    position: fixed; /* Fix the nav at the top */
-    top: 0; /* Align at the top */
-    left: 0; /* Align to the left edge */
-    width: 100%; /* Make it span the full width of the screen */
-    z-index: 0; /* Ensure it stays above other content */
-    /*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: add shadow for emphasis */
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    z-index: 0; 
+    
 }
 
   /* Style for the menu list */
@@ -169,32 +162,41 @@ nav.horizontal-menu ul li a:hover {
 }
 
 .tabs {
+    opacity: 0;
     display: flex;
+    visibility: hidden; 
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 1000;
+    padding-bottom: 20px;
     justify-content: center;
-    align-items: center;
-    padding: 20px 20px; /* Same padding as nav */
+}
+
+.tabs.visible{
+    opacity: 1;
+    visibility: visible;
+    justify-content:center;
+    align-items:center;
 }
 
 .tablinks {
-    background-color: transparent; /* Match with nav background */
-    border: 10px solid transparent; /* Make sure border matches nav link border */
-    color: #ffffff; /* Match the text color */
+    background-color: transparent; 
+    border: 10px solid transparent; 
+    color: #000; 
     padding: 10px 20px;
     cursor: pointer;
-    transition: background-color 0.3s, border 0.3s, box-shadow 0.3s; /* Add box-shadow for consistency */
-    font-size: 1.5em; /* Match nav link size */
+    transition: background-color 0.3s, border 0.3s, box-shadow 0.3s; 
+    font-size: 1.5em;
+    margin: 0 30px;
 }
   
 .tablinks:hover {
-    border: 2px solid white; /* Same hover effect as nav */
-    background-color: transparent; /* Make it transparent to match */
-    color: white; /* Text color on hover */
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5); /* Glow effect */
-}
-  
-.tablinks.active {
-    background-color: #444; /* Background color for active tab to match nav background */
-    color: white; /* Text color for active tab */
+    border: 2px solid #77d7ed;
+    background-color: transparent;
+    color: black;
+    box-shadow: 0 0 10px #77d7ed, 0 0 20px #77d7ed; /* Glow effect */
 }
 
 main {
@@ -255,7 +257,7 @@ section p{
 }
 
 .skills-list li:hover {
-    box-shadow: 0 4px 6px rgba(0, 255, 255); 
+    box-shadow: 0 4px 6px #77d7ed; 
 }
 
 #Projects img {
